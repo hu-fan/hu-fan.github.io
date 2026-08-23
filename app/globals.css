@@ -39,7 +39,7 @@ h1, h2, h3 { color: var(--ink); }
 .site.dark .portrait-card img { mix-blend-mode: normal; }
 .profile-column h1 { margin: 18px 0 7px; font-family: 'Lora', Georgia, serif; font-size: clamp(29px, 3.1vw, 37px); font-weight: 600; line-height: 1; letter-spacing: -.035em; }
 .profile-role { margin-bottom: 3px; font-size: 17px; font-weight: 600; }
-.profile-affiliation { margin-bottom: 0; color: var(--muted); font-size: 14px; }
+.profile-affiliation { margin-bottom: 0; color: var(--muted); font-size: 14px; font-weight: 700; }
 .profile-goal { margin: 15px 0 18px; color: var(--muted); font-size: 14px; line-height: 1.55; }
 .profile-goal span { margin-right: 4px; }
 .profile-links { display: grid; gap: 6px; border-top: 1px solid var(--line); padding-top: 12px; }
@@ -52,12 +52,12 @@ a:hover .arrow { transform: translate(2px, -2px); }
 .about-heading { margin: 0 0 25px; }
 .about-copy > p { max-width: 680px; margin-bottom: 0; color: var(--muted); font-size: 17px; line-height: 1.72; }
 .about-copy > p + p { margin-top: 26px; }
-.about-copy > p a { color: var(--ink); font-weight: 400; border-bottom: 1px solid var(--line); }
+.about-copy > p a { color: inherit; font-weight: 400; border-bottom: 1px solid var(--line); }
 .education-note a { color: var(--accent); font-weight: 700; border-bottom: 1px solid currentColor; }
 .about-copy strong { color: var(--ink); font-weight: 700; }
 .about-tags { display: flex; flex-wrap: nowrap; gap: 8px; margin-top: 30px; overflow-x: auto; scrollbar-width: none; }
 .about-tags::-webkit-scrollbar { display: none; }
-.about-tags span { padding: 9px 13px; border: 1px solid var(--line); background: var(--yellow); font-size: 13px; font-weight: 700; line-height: 1.35; white-space: nowrap; }
+.about-tags span { padding: 9px 13px; border: 1px solid var(--line); background: var(--yellow); font-size: 16px; font-weight: 600; line-height: 1.35; white-space: nowrap; }
 .section-block { padding-top: 108px; }
 .section-heading { margin-bottom: 30px; }
 .section-title { max-width: 900px; margin: 0; }
@@ -68,7 +68,7 @@ a:hover .arrow { transform: translate(2px, -2px); }
 .school-mark { width: 72px; height: 72px; display: grid; place-items: center; border-radius: 50%; }
 .school-mark img { width: 68px; height: 68px; object-fit: contain; }
 .education-date, .publication-meta { color: var(--accent); font-size: 11px; font-weight: 700; text-transform: uppercase; }
-.education-item h3 { margin: 7px 0 8px; font-size: 24px; line-height: 1.1; letter-spacing: -.04em; }
+.education-item h3 { margin: 7px 0 8px; font-size: 24px; font-weight: 700; line-height: 1.1; letter-spacing: -.04em; }
 .education-item p:not(.education-date):not(.education-note) { margin-bottom: 6px; color: var(--muted); font-size: 15px; }
 .education-note { color: var(--muted); font-size: 13px; }
 .news-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
@@ -95,7 +95,7 @@ a:hover .arrow { transform: translate(2px, -2px); }
 .publication-legend { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 0 0 18px; color: var(--muted); font-size: 12px; line-height: 1.4; }
 .publication-legend sup, .author-marker { color: var(--accent); font-size: .78em; font-weight: 700; line-height: 0; vertical-align: super; }
 .publication-group + .publication-group { margin-top: 48px; }
-.publication-group-title { margin: 0 0 16px; color: var(--ink); font-size: 13px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+.publication-group-title { margin: 0 0 16px; color: var(--ink); font-size: 14px; font-weight: 700; letter-spacing: .045em; text-transform: uppercase; }
 .featured-publication-list { border-top: 1px solid var(--line); }
 .publication-featured { display: grid; grid-template-columns: minmax(250px, .9fr) minmax(0, 1.25fr); gap: clamp(28px, 4vw, 48px); align-items: center; padding: 30px 0; border-bottom: 1px solid var(--line); }
 .publication-figure { position: relative; height: 230px; overflow: hidden; display: grid; place-items: center; border: 1px solid var(--line); background: #fff; box-shadow: 0 8px 22px rgb(33 79 128 / 8%); }
