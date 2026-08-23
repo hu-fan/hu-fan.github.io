@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.next/
+.vinext/
+.wrangler/
+Fan_CV_260823.pdf
+/fan.png
+npm-debug.log*
+out/
+.DS_Store
+.env
+.env.local
