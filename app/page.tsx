@@ -23,14 +23,14 @@ const researchAreas = [
 ];
 
 const publications = [
-  { type: 'Conference paper', venue: 'ICCD 2026', tag: 'ICCD 2026', title: 'RESIST: Residual Reinforcement Learning for Lifespan Clock Tree Reliability Optimization', authors: 'F. Hu, X. Wu, H. Wang, J. Shaik, S. Singhal, and X. Guo*', leadAuthor: true, leadLabel: 'First author', image: '/publications/resist-overview.png', imageAlt: 'Overview of the RESIST lifespan timing optimization framework' },
-  { type: 'Conference paper', venue: 'AICAS 2026', tag: 'AICAS 2026', title: 'Beyond Iterative Search: Intelligent Generative GATv2 Framework for Analog Sizing', authors: 'F. Hu, J. Shaik, and X. Guo*', leadAuthor: true, leadLabel: 'First author', image: '/publications/gatv2-analog-sizing.png', imageAlt: 'Overview of the generative GATv2 analog sizing framework' },
-  { type: 'Conference paper', venue: 'DAC 2026', title: 'ChiPlanner: Physically-Aware and Timing-Driven Design Planner for 2.5D Multi-Chiplet Systems', authors: 'Z. Li†, K. Tian†, F. Hu, Z. Li, X. Wu, H. Zhang, S. Chen, J. Zhai*, X. Guo*, and K. Zhao' },
-  { type: 'Conference paper', venue: 'MCSOC 2026', title: 'Aging Analysis of CMOS Synaptic Circuits with Simplified Leaky Integrate-and-Fire Neurons', authors: 'S. J. Babu, S. Menezes Picard, F. Hu, X. Wu, S. Singhal, and X. Guo' },
-  { type: 'Conference paper', venue: 'ISOCC 2026', title: 'PRISM: Beam-Search Technology Mapping via Learned Physical Timing', authors: 'L. Zhu, X. Wu, F. Hu, L. Li, Y. Hu, Q. He, and X. Guo' },
-  { type: 'Journal paper', venue: 'ACM Computing Surveys', title: 'Extending Silicon Lifetime: A Review of Design Techniques for Reliable Integrated Circuits', authors: 'J. Shaik, F. Hu, L. Zhu, S. Singha, and X. Guo*', link: 'https://doi.org/10.1145/3829075', identifier: 'DOI · 10.1145/3829075' },
-  { type: 'Journal paper', venue: 'ACM Computing Surveys', tag: 'ACM CSUR', title: 'Shift Left Techniques in Electronic Design Automation: A Survey', authors: 'X. Wu†, Z. Li†, F. Hu†, T. Lin, X. Zhao, R. Wang, and X. Guo*', link: 'https://doi.org/10.1145/3819588', identifier: 'DOI · 10.1145/3819588', leadAuthor: true, leadLabel: 'Co-first author', image: '/publications/shift-left-eda.png', imageAlt: 'Shift-left techniques across the electronic design automation flow' },
-  { type: 'Book / Book Chapter', venue: 'China Machine Industry Press · 2026 · ISBN 9787111799894', title: 'AI-Powered Vehicles: Computing Power and Chips for Intelligent Driving', authors: 'X. Guo, R. Wang, F. Hu, and X. Wu' },
+  { type: 'Conference paper', venue: 'ICCD 2026', tag: 'ICCD 2026', title: 'RESIST: Residual Reinforcement Learning for Lifespan Clock Tree Reliability Optimization', authors: 'F. Hu, X. Wu, H. Wang, J. Shaik, S. Singhal, and X. Guo*', citation: 'IEEE International Conference on Computer Design (ICCD), 2026.', leadAuthor: true, leadLabel: 'First author', image: '/publications/resist-overview.png', imageAlt: 'Overview of the RESIST lifespan timing optimization framework' },
+  { type: 'Conference paper', venue: 'AICAS 2026', tag: 'AICAS 2026', title: 'Beyond Iterative Search: Intelligent Generative GATv2 Framework for Analog Sizing', authors: 'F. Hu, J. Shaik, and X. Guo*', citation: 'IEEE International Conference on Artificial Intelligence Circuits and Systems (AICAS), 2026.', leadAuthor: true, leadLabel: 'First author', image: '/publications/gatv2-analog-sizing.png', imageAlt: 'Overview of the generative GATv2 analog sizing framework' },
+  { type: 'Conference paper', venue: 'DAC 2026', title: 'ChiPlanner: Physically-Aware and Timing-Driven Design Planner for 2.5D Multi-Chiplet Systems', authors: 'Z. Li†, K. Tian†, F. Hu, Z. Li, X. Wu, H. Zhang, S. Chen, J. Zhai*, X. Guo*, and K. Zhao', citation: 'ACM/IEEE Design Automation Conference (DAC), 2026.' },
+  { type: 'Conference paper', venue: 'McSoC 2026', title: 'Aging Analysis of CMOS Synaptic Circuits with Simplified Leaky Integrate-and-Fire Neurons', authors: 'S. J. Babu, S. Menezes Picard, F. Hu, X. Wu, S. Singhal, and X. Guo', citation: 'IEEE International Conference on Mobile Services and Cloud Computing (McSoC), 2026.' },
+  { type: 'Conference paper', venue: 'ISOCC 2026', title: 'PRISM: Beam-Search Technology Mapping via Learned Physical Timing', authors: 'L. Zhu, X. Wu, F. Hu, L. Li, Y. Hu, Q. He, and X. Guo', citation: '23rd International SoC Design Conference (ISOCC), 2026.' },
+  { type: 'Journal paper', venue: 'CSUR 2026', title: 'Extending Silicon Lifetime: A Review of Design Techniques for Reliable Integrated Circuits', authors: 'J. Shaik, F. Hu, L. Zhu, S. Singha, and X. Guo*', citation: 'ACM Computing Surveys (CSUR), 2026.', link: 'https://doi.org/10.1145/3829075', identifier: 'DOI · 10.1145/3829075' },
+  { type: 'Journal paper', venue: 'CSUR 2026', tag: 'ACM CSUR', title: 'Shift Left Techniques in Electronic Design Automation: A Survey', authors: 'X. Wu†, Z. Li†, F. Hu†, T. Lin, X. Zhao, R. Wang, and X. Guo*', citation: 'ACM Computing Surveys (CSUR), 2026.', link: 'https://doi.org/10.1145/3819588', identifier: 'DOI · 10.1145/3819588', leadAuthor: true, leadLabel: 'Co-first author', image: '/publications/shift-left-eda.png', imageAlt: 'Shift-left techniques across the electronic design automation flow' },
+  { type: 'Book / Book Chapter', venue: 'China Mechanical Industry Press · 2026', title: 'AI-Powered Vehicles: Computing Power and Chips for Intelligent Driving', authors: 'X. Guo, R. Wang, F. Hu, and X. Wu', citation: 'China Mechanical Industry Press, 2026. ISBN: 9787111799894. (In Chinese).' },
 ];
 
 const awards = [
@@ -72,7 +72,7 @@ const searchEntries = [
   { label: 'Teaching', href: '#teaching', meta: 'Section', keywords: 'teaching assistant courses Global College' },
   ...news.map(([date, text]) => ({ label: text, href: '#news', meta: date, keywords: text })),
   ...researchAreas.map((area) => ({ label: area.title, href: '#research', meta: 'Research', keywords: area.text })),
-  ...publications.map((publication) => ({ label: publication.title, href: '#publications', meta: publication.venue, keywords: `${publication.type} ${publication.venue} ${publication.authors} ${publication.identifier ?? ''} ${publication.leadAuthor ? 'first author lead author' : 'collaborative work'}` })),
+  ...publications.map((publication) => ({ label: publication.title, href: '#publications', meta: publication.venue, keywords: `${publication.type} ${publication.venue} ${publication.citation} ${publication.authors} ${publication.identifier ?? ''} ${publication.leadAuthor ? 'first author lead author' : 'collaborative work'}` })),
   ...awards.map(([award, year]) => ({ label: award, href: '#awards', meta: year, keywords: award })),
   ...services.map((service) => ({ label: service, href: '#services', meta: 'Service', keywords: service })),
   ...teaching.map(([course, year]) => ({ label: course, href: '#teaching', meta: year, keywords: `${course} teaching assistant Global College SJTU` })),
@@ -167,7 +167,7 @@ export default function Home() {
             <h2 className="about-heading">About Me</h2>
             <p>Hi! I am Fan Hu, a first-year Ph.D. candidate in Electronic Science and Technology at Shanghai Jiao Tong University, advised by <a href="https://sites.gc.sjtu.edu.cn/xinfei-guo/" target="_blank" rel="noreferrer">Prof. Xinfei Guo</a>, and I conduct my research in the <a href="https://sites.gc.sjtu.edu.cn/icas/" target="_blank" rel="noreferrer">Intelligent Circuits, Architectures, and Systems (iCAS) Lab</a>. Before beginning my doctoral study, I received my B.S. in Electrical and Computer Engineering from Shanghai Jiao Tong University.</p>
             <p>My research interests lie in AI for Electronic Design Automation (EDA), with a particular focus on applying AI to timing prediction and optimization in the early stages of the EDA flow. I am also interested in reliability-aware chip design, especially understanding and addressing aging effects in advanced semiconductor technologies.</p>
-            <div className="about-tags"><span>AI for EDA</span><span>Timing Optimization for Advanced Chips</span><span>Reliable circuits</span></div>
+            <div className="about-tags"><span>AI for EDA</span><span>Timing Optimization for Advanced Chips</span><span>Reliable Circuits</span></div>
           </div>
         </section>
 
@@ -208,13 +208,14 @@ export default function Home() {
                 <p className="publication-kicker">{publication.type} · {publication.leadLabel}</p>
                 <h3>{publication.title}</h3>
                 <p className="authors"><AuthorLine authors={publication.authors} /></p>
+                <p className="publication-venue"><em>{publication.citation}</em></p>
                 {publication.link ? <a className="publication-featured-link" href={publication.link} target="_blank" rel="noreferrer">{publication.identifier} <Arrow /></a> : null}
               </div>
             </article>)}</div>
           </div> : null}
           {collaborativePublications.length ? <div className="publication-group collaborative-publications">
             <h3 className="publication-group-title">Collaborative Work</h3>
-            <div className="publication-list">{collaborativePublications.map((publication) => <article className="publication-item" key={publication.title}><div className="publication-meta"><span>{publication.type}</span><time>{publication.venue}</time>{publication.link ? <a href={publication.link} target="_blank" rel="noreferrer">{publication.identifier} <Arrow /></a> : null}</div><div className="publication-body"><h3>{publication.title}</h3><p className="authors"><AuthorLine authors={publication.authors} /></p></div></article>)}</div>
+            <div className="publication-list">{collaborativePublications.map((publication) => <article className="publication-item" key={publication.title}><div className="publication-meta"><span>{publication.type}</span><time>{publication.venue}</time>{publication.link ? <a href={publication.link} target="_blank" rel="noreferrer">{publication.identifier} <Arrow /></a> : null}</div><div className="publication-body"><h3>{publication.title}</h3><p className="authors"><AuthorLine authors={publication.authors} /></p><p className="publication-venue"><em>{publication.citation}</em></p></div></article>)}</div>
           </div> : null}
           {!filteredPublications.length ? <p className="publication-empty">No publications in this category.</p> : null}
         </section>
