@@ -92,6 +92,8 @@ a:hover .arrow { transform: translate(2px, -2px); }
 .filter-row { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px; }
 .filter-button { cursor: pointer; border: 1px solid var(--line); background: transparent; padding: 9px 13px; font-size: 12px; font-weight: 700; }
 .filter-button.active, .filter-button:hover { border-color: var(--ink); background: var(--yellow); }
+.publication-legend { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 0 0 18px; color: var(--muted); font-size: 12px; line-height: 1.4; }
+.publication-legend sup, .author-marker { color: var(--accent); font-size: .78em; font-weight: 700; line-height: 0; vertical-align: super; }
 .publication-list { border-top: 1px solid var(--line); }
 .publication-item { display: grid; grid-template-columns: 190px 1fr; gap: 35px; padding: 29px 0 31px; border-bottom: 1px solid var(--line); }
 .publication-meta { display: flex; flex-direction: column; gap: 8px; line-height: 1.35; }

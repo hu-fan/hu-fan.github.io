@@ -23,13 +23,13 @@ const researchAreas = [
 ];
 
 const publications = [
-  { type: 'Conference paper', venue: 'ICCD 2026', title: 'RESIST: Residual Reinforcement Learning for Lifespan Clock Tree Reliability Optimization', authors: 'F. Hu, X. Wu, H. Wang, J. Shaik, S. Singhal, and X. Guo' },
-  { type: 'Conference paper', venue: 'AICAS 2026', title: 'Beyond Iterative Search: Intelligent Generative GATv2 Framework for Analog Sizing', authors: 'F. Hu, J. Shaik, and X. Guo' },
-  { type: 'Conference paper', venue: 'DAC 2026', title: 'ChiPlanner: Physically-Aware and Timing-Driven Design Planner for 2.5D Multi-Chiplet Systems', authors: 'Z. Li, K. Tian, F. Hu, Z. Li, X. Wu, H. Zhang, S. Chen, J. Zhai, X. Guo, and K. Zhao' },
+  { type: 'Conference paper', venue: 'ICCD 2026', title: 'RESIST: Residual Reinforcement Learning for Lifespan Clock Tree Reliability Optimization', authors: 'F. Hu, X. Wu, H. Wang, J. Shaik, S. Singhal, and X. Guo*' },
+  { type: 'Conference paper', venue: 'AICAS 2026', title: 'Beyond Iterative Search: Intelligent Generative GATv2 Framework for Analog Sizing', authors: 'F. Hu, J. Shaik, and X. Guo*' },
+  { type: 'Conference paper', venue: 'DAC 2026', title: 'ChiPlanner: Physically-Aware and Timing-Driven Design Planner for 2.5D Multi-Chiplet Systems', authors: 'Z. Li†, K. Tian†, F. Hu, Z. Li, X. Wu, H. Zhang, S. Chen, J. Zhai*, X. Guo*, and K. Zhao' },
   { type: 'Conference paper', venue: 'MCSOC 2026', title: 'Aging Analysis of CMOS Synaptic Circuits with Simplified Leaky Integrate-and-Fire Neurons', authors: 'S. J. Babu, S. Menezes Picard, F. Hu, X. Wu, S. Singhal, and X. Guo' },
   { type: 'Conference paper', venue: 'ISOCC 2026', title: 'PRISM: Beam-Search Technology Mapping via Learned Physical Timing', authors: 'L. Zhu, X. Wu, F. Hu, L. Li, Y. Hu, Q. He, and X. Guo' },
-  { type: 'Journal paper', venue: 'ACM Computing Surveys', title: 'Extending Silicon Lifetime: A Review of Design Techniques for Reliable Integrated Circuits', authors: 'J. Shaik, F. Hu, L. Zhu, S. Singha, and X. Guo', link: 'https://doi.org/10.1145/3829075', identifier: 'DOI · 10.1145/3829075' },
-  { type: 'Journal paper', venue: 'ACM Computing Surveys', title: 'Shift Left Techniques in Electronic Design Automation: A Survey', authors: 'X. Wu, Z. Li, F. Hu, T. Lin, X. Zhao, R. Wang, and X. Guo', link: 'https://doi.org/10.1145/3819588', identifier: 'DOI · 10.1145/3819588' },
+  { type: 'Journal paper', venue: 'ACM Computing Surveys', title: 'Extending Silicon Lifetime: A Review of Design Techniques for Reliable Integrated Circuits', authors: 'J. Shaik, F. Hu, L. Zhu, S. Singha, and X. Guo*', link: 'https://doi.org/10.1145/3829075', identifier: 'DOI · 10.1145/3829075' },
+  { type: 'Journal paper', venue: 'ACM Computing Surveys', title: 'Shift Left Techniques in Electronic Design Automation: A Survey', authors: 'X. Wu†, Z. Li†, F. Hu†, T. Lin, X. Zhao, R. Wang, and X. Guo*', link: 'https://doi.org/10.1145/3819588', identifier: 'DOI · 10.1145/3819588' },
   { type: 'Book / Book Chapter', venue: 'China Machine Industry Press · 2026 · ISBN 9787111799894', title: 'AI-Powered Vehicles: Computing Power and Chips for Intelligent Driving', authors: 'X. Guo, R. Wang, F. Hu, and X. Wu' },
 ];
 
@@ -81,8 +81,12 @@ const searchEntries = [
 function Arrow() { return <span aria-hidden="true" className="arrow">↗</span>; }
 
 function AuthorLine({ authors }: { authors: string }) {
-  const parts = authors.split('F. Hu');
-  return <>{parts.map((part, index) => <span key={`${part}-${index}`}>{part}{index < parts.length - 1 ? <strong>F. Hu</strong> : null}</span>)}</>;
+  const parts = authors.split(/(F\. Hu|[†*])/g).filter(Boolean);
+  return <>{parts.map((part, index) => {
+    if (part === 'F. Hu') return <strong key={`${part}-${index}`}>F. Hu</strong>;
+    if (part === '†' || part === '*') return <sup className="author-marker" key={`${part}-${index}`}>{part}</sup>;
+    return <span key={`${part}-${index}`}>{part}</span>;
+  })}</>;
 }
 
 export default function Home() {
@@ -190,6 +194,7 @@ export default function Home() {
         <section className="section-block" id="publications">
           <div className="section-heading heading-with-link"><h2 className="section-title">Publications</h2><a className="text-link" href="https://scholar.google.com/citations?hl=zh-CN&user=glSH6U8AAAAJ" target="_blank" rel="noreferrer">Google Scholar <Arrow /></a></div>
           <div className="filter-row" role="group" aria-label="Filter publications">{['All', 'Conference', 'Journal', 'Book / Book Chapter'].map((filter) => <button type="button" className={publicationFilter === filter ? 'filter-button active' : 'filter-button'} onClick={() => setPublicationFilter(filter)} key={filter}>{filter}</button>)}</div>
+          <p className="publication-legend"><span><sup>†</sup> Equal contribution (co-first authors)</span><span><sup>*</sup> Corresponding author</span></p>
           <div className="publication-list">{filteredPublications.map((publication) => <article className="publication-item" key={publication.title}><div className="publication-meta"><span>{publication.type}</span><time>{publication.venue}</time>{publication.link ? <a href={publication.link} target="_blank" rel="noreferrer">{publication.identifier} <Arrow /></a> : null}</div><div className="publication-body"><h3>{publication.title}</h3><p className="authors"><AuthorLine authors={publication.authors} /></p></div></article>)}</div>
         </section>
 
