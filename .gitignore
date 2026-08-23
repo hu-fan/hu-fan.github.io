@@ -5,6 +5,7 @@ dist/
 .wrangler/
 Fan_CV_260823.pdf
 /fan.png
+/Publications/
 npm-debug.log*
 out/
 .DS_Store

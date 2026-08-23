@@ -23,8 +23,8 @@ const researchAreas = [
 ];
 
 const publications = [
-  { type: 'Conference paper', venue: 'ICCD 2026', title: 'RESIST: Residual Reinforcement Learning for Lifespan Clock Tree Reliability Optimization', authors: 'F. Hu, X. Wu, H. Wang, J. Shaik, S. Singhal, and X. Guo*' },
-  { type: 'Conference paper', venue: 'AICAS 2026', title: 'Beyond Iterative Search: Intelligent Generative GATv2 Framework for Analog Sizing', authors: 'F. Hu, J. Shaik, and X. Guo*' },
+  { type: 'Conference paper', venue: 'ICCD 2026', title: 'RESIST: Residual Reinforcement Learning for Lifespan Clock Tree Reliability Optimization', authors: 'F. Hu, X. Wu, H. Wang, J. Shaik, S. Singhal, and X. Guo*', leadAuthor: true, image: '/publications/resist-overview.png', imageAlt: 'Overview of the RESIST lifespan timing optimization framework' },
+  { type: 'Conference paper', venue: 'AICAS 2026', title: 'Beyond Iterative Search: Intelligent Generative GATv2 Framework for Analog Sizing', authors: 'F. Hu, J. Shaik, and X. Guo*', leadAuthor: true, image: '/publications/gatv2-analog-sizing.png', imageAlt: 'Overview of the generative GATv2 analog sizing framework' },
   { type: 'Conference paper', venue: 'DAC 2026', title: 'ChiPlanner: Physically-Aware and Timing-Driven Design Planner for 2.5D Multi-Chiplet Systems', authors: 'Z. Li†, K. Tian†, F. Hu, Z. Li, X. Wu, H. Zhang, S. Chen, J. Zhai*, X. Guo*, and K. Zhao' },
   { type: 'Conference paper', venue: 'MCSOC 2026', title: 'Aging Analysis of CMOS Synaptic Circuits with Simplified Leaky Integrate-and-Fire Neurons', authors: 'S. J. Babu, S. Menezes Picard, F. Hu, X. Wu, S. Singhal, and X. Guo' },
   { type: 'Conference paper', venue: 'ISOCC 2026', title: 'PRISM: Beam-Search Technology Mapping via Learned Physical Timing', authors: 'L. Zhu, X. Wu, F. Hu, L. Li, Y. Hu, Q. He, and X. Guo' },
@@ -72,7 +72,7 @@ const searchEntries = [
   { label: 'Teaching', href: '#teaching', meta: 'Section', keywords: 'teaching assistant courses Global College' },
   ...news.map(([date, text]) => ({ label: text, href: '#news', meta: date, keywords: text })),
   ...researchAreas.map((area) => ({ label: area.title, href: '#research', meta: 'Research', keywords: area.text })),
-  ...publications.map((publication) => ({ label: publication.title, href: '#publications', meta: publication.venue, keywords: `${publication.type} ${publication.authors} ${publication.identifier ?? ''}` })),
+  ...publications.map((publication) => ({ label: publication.title, href: '#publications', meta: publication.venue, keywords: `${publication.type} ${publication.venue} ${publication.authors} ${publication.identifier ?? ''} ${publication.leadAuthor ? 'first author lead author' : 'collaborative work'}` })),
   ...awards.map(([award, year]) => ({ label: award, href: '#awards', meta: year, keywords: award })),
   ...services.map((service) => ({ label: service, href: '#services', meta: 'Service', keywords: service })),
   ...teaching.map(([course, year]) => ({ label: course, href: '#teaching', meta: year, keywords: `${course} teaching assistant Global College SJTU` })),
@@ -95,6 +95,8 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
   const [darkMode, setDarkMode] = useState(false);
   const filteredPublications = publicationFilter === 'All' ? publications : publications.filter((publication) => publication.type.startsWith(publicationFilter));
+  const leadAuthorPublications = filteredPublications.filter((publication) => publication.leadAuthor);
+  const collaborativePublications = filteredPublications.filter((publication) => !publication.leadAuthor);
   const latestNews = news.slice(0, 4);
   const earlierNews = news.slice(4);
   const recentAwards = awards.slice(0, 5);
@@ -188,14 +190,32 @@ export default function Home() {
 
         <section className="section-block" id="research">
           <div className="section-heading"><h2 className="section-title">Main Research Topics</h2></div>
-          <div className="research-grid">{researchAreas.map((area) => <article className={`research-card ${area.tone}`} key={area.title}><div><h3>{area.title}</h3><p>{area.text}</p></div></article>)}</div>
+          <div className="research-grid">{researchAreas.map((area) => <article className={`research-card ${area.tone}`} key={area.title}><h3>{area.title}</h3><p>{area.text}</p></article>)}</div>
         </section>
 
         <section className="section-block" id="publications">
           <div className="section-heading heading-with-link"><h2 className="section-title">Publications</h2><a className="text-link" href="https://scholar.google.com/citations?hl=zh-CN&user=glSH6U8AAAAJ" target="_blank" rel="noreferrer">Google Scholar <Arrow /></a></div>
           <div className="filter-row" role="group" aria-label="Filter publications">{['All', 'Conference', 'Journal', 'Book / Book Chapter'].map((filter) => <button type="button" className={publicationFilter === filter ? 'filter-button active' : 'filter-button'} onClick={() => setPublicationFilter(filter)} key={filter}>{filter}</button>)}</div>
           <p className="publication-legend"><span><sup>†</sup> Equal contribution (co-first authors)</span><span><sup>*</sup> Corresponding author</span></p>
-          <div className="publication-list">{filteredPublications.map((publication) => <article className="publication-item" key={publication.title}><div className="publication-meta"><span>{publication.type}</span><time>{publication.venue}</time>{publication.link ? <a href={publication.link} target="_blank" rel="noreferrer">{publication.identifier} <Arrow /></a> : null}</div><div className="publication-body"><h3>{publication.title}</h3><p className="authors"><AuthorLine authors={publication.authors} /></p></div></article>)}</div>
+          {leadAuthorPublications.length ? <div className="publication-group featured-publications">
+            <h3 className="publication-group-title">First-Author Work</h3>
+            <div className="featured-publication-list">{leadAuthorPublications.map((publication) => <article className="publication-featured" key={publication.title}>
+              <div className="publication-figure">
+                <span className="publication-tag">{publication.venue}</span>
+                <img src={publication.image} alt={publication.imageAlt} loading="lazy" />
+              </div>
+              <div className="publication-featured-copy">
+                <p className="publication-kicker">{publication.type} · First author</p>
+                <h3>{publication.title}</h3>
+                <p className="authors"><AuthorLine authors={publication.authors} /></p>
+              </div>
+            </article>)}</div>
+          </div> : null}
+          {collaborativePublications.length ? <div className="publication-group collaborative-publications">
+            <h3 className="publication-group-title">Collaborative Work</h3>
+            <div className="publication-list">{collaborativePublications.map((publication) => <article className="publication-item" key={publication.title}><div className="publication-meta"><span>{publication.type}</span><time>{publication.venue}</time>{publication.link ? <a href={publication.link} target="_blank" rel="noreferrer">{publication.identifier} <Arrow /></a> : null}</div><div className="publication-body"><h3>{publication.title}</h3><p className="authors"><AuthorLine authors={publication.authors} /></p></div></article>)}</div>
+          </div> : null}
+          {!filteredPublications.length ? <p className="publication-empty">No publications in this category.</p> : null}
         </section>
 
         <section className="section-block" id="awards">
