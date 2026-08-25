@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 const news = [
   ['Aug. 2026', "My first-author paper, RESIST: Residual Reinforcement Learning for Lifespan Clock Tree Reliability Optimization, has been accepted by ICCD'26!"],
-  ['Jul. 2026', 'I received the 2026 IEEE CASS Student Travel Grant!'],
+  ['Aug. 2026', 'I received the 2026 IEEE CASS Student Travel Grant!'],
   ['Jun. 2026', "My first-author paper, Beyond Iterative Search: Intelligent Generative GATv2 Framework for Analog Sizing, has been accepted by AICAS'26!"],
   ['May 2026', 'Our co-authored paper, Extending Silicon Lifetime: A Review of Design Techniques for Reliable Integrated Circuits, has been published in ACM Computing Surveys!'],
   ['May 2026', 'Our co-first-authored paper, Shift-Left Techniques in Electronic Design Automation: A Survey, has been published in ACM Computing Surveys!'],
@@ -17,8 +17,8 @@ const news = [
 ];
 
 const researchAreas = [
-  { title: 'Timing prediction & optimization', text: 'Learning-based timing prediction and timing-driven optimization for advanced chips, including 3D ICs, with an emphasis on early physical design decisions.', tone: 'blue' },
   { title: 'AI for EDA', text: 'Generative, reinforcement-learning, and agentic approaches for analog and digital circuit design automation.', tone: 'yellow' },
+  { title: 'Timing prediction & optimization', text: 'Learning-based timing prediction and timing-driven optimization for advanced chips, including 3D ICs, with an emphasis on early physical design decisions.', tone: 'blue' },
   { title: 'Reliability-aware design', text: 'Design methodologies that account for aging, stress, and long-term reliability in integrated circuits.', tone: 'white' },
 ];
 
