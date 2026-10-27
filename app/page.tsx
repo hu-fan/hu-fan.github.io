@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react';
 
 const news = [
+  ['Oct. 2026', 'My research abstract has been accepted by the ICCD Student Research Forum! I will present a poster on the shift-left agentic framework in Hong Kong, China!'],
   ['Aug. 2026', "My first-author paper, RESIST: Residual Reinforcement Learning for Lifespan Clock Tree Reliability Optimization, has been accepted by ICCD'26!"],
   ['Aug. 2026', 'I received the 2026 IEEE CASS Student Travel Grant!'],
   ['Jun. 2026', "My first-author paper, Beyond Iterative Search: Intelligent Generative GATv2 Framework for Analog Sizing, has been accepted by AICAS'26!"],
@@ -47,17 +48,27 @@ const awards = [
 ];
 
 const teaching = [
-  ['System-on-Chip Design', '2025'],
-  ['Modern Digital VLSI Design', '2025'],
-  ['Electromagnetics', '2024'],
-  ['Introduction to Circuits', '2023'],
-  ['Introduction to Signals and Systems', '2023'],
+  {
+    school: 'School of Computer Science',
+    courses: [['Data Structures', '2026']],
+  },
+  {
+    school: 'Global College',
+    courses: [
+      ['System-on-Chip Design', '2025'],
+      ['Modern Digital VLSI Design', '2025'],
+      ['Electromagnetics', '2024'],
+      ['Introduction to Circuits', '2023'],
+      ['Introduction to Signals and Systems', '2023'],
+    ],
+  },
 ];
 
 const services = [
   'IEEE Student Membership.',
+  'ACM Student Membership.',
   'Core Member, ACM-W SJTU Student Organization.',
-  'Reviewer for DAC, ICCAD, ICCD, ISCAS, and ISEDA conferences.',
+  'Reviewer for DAC, ICCAD, ICCD, ISCAS, ISEDA, WWW, and MCSoC conferences.',
 ];
 
 const searchEntries = [
@@ -68,14 +79,14 @@ const searchEntries = [
   { label: 'Main Research Topics', href: '#research', meta: 'Section', keywords: 'AI EDA timing prediction optimization reliability chips 3D IC' },
   { label: 'Publications', href: '#publications', meta: 'Section', keywords: 'papers journal conference book chapter' },
   { label: 'Honors & Awards', href: '#awards', meta: 'Section', keywords: 'honors awards competition grant scholarship' },
-  { label: 'Services', href: '#services', meta: 'Section', keywords: 'IEEE reviewer ACM-W academic service membership' },
-  { label: 'Teaching', href: '#teaching', meta: 'Section', keywords: 'teaching assistant courses Global College' },
+  { label: 'Services', href: '#services', meta: 'Section', keywords: 'IEEE ACM reviewer ACM-W academic service membership' },
+  { label: 'Teaching', href: '#teaching', meta: 'Section', keywords: 'teaching assistant courses School of Computer Science Global College' },
   ...news.map(([date, text]) => ({ label: text, href: '#news', meta: date, keywords: text })),
   ...researchAreas.map((area) => ({ label: area.title, href: '#research', meta: 'Research', keywords: area.text })),
   ...publications.map((publication) => ({ label: publication.title, href: '#publications', meta: publication.venue, keywords: `${publication.type} ${publication.venue} ${publication.citation} ${publication.authors} ${publication.identifier ?? ''} ${publication.leadAuthor ? 'first author lead author' : 'collaborative work'}` })),
   ...awards.map(([award, year]) => ({ label: award, href: '#awards', meta: year, keywords: award })),
   ...services.map((service) => ({ label: service, href: '#services', meta: 'Service', keywords: service })),
-  ...teaching.map(([course, year]) => ({ label: course, href: '#teaching', meta: year, keywords: `${course} teaching assistant Global College SJTU` })),
+  ...teaching.flatMap(({ school, courses }) => courses.map(([course, year]) => ({ label: course, href: '#teaching', meta: year, keywords: `${course} teaching assistant ${school} SJTU` }))),
 ];
 
 function Arrow() { return <span aria-hidden="true" className="arrow">↗</span>; }
@@ -236,8 +247,10 @@ export default function Home() {
 
         <section className="section-block" id="teaching">
           <div className="section-heading"><h2 className="section-title">Teaching</h2></div>
-          <p className="section-intro">Teaching Assistant, Global College, Shanghai Jiao Tong University.</p>
-          <div className="simple-list teaching-list">{teaching.map(([course, year]) => <div key={course}><strong>{course}</strong><span>{year}</span></div>)}</div>
+          {teaching.map(({ school, courses }) => <div className="teaching-group" key={school}>
+            <h3 className="section-intro">Teaching Assistant, {school}, Shanghai Jiao Tong University.</h3>
+            <div className="simple-list teaching-list">{courses.map(([course, year]) => <div key={course}><strong>{course}</strong><span>{year}</span></div>)}</div>
+          </div>)}
         </section>
 
         <footer className="footer"><div><strong>Fan Hu</strong><span>Ph.D. Candidate · Shanghai Jiao Tong University</span></div><div className="footer-links"><a href="mailto:hu-fan@sjtu.edu.cn">hu-fan@sjtu.edu.cn</a><a href="#top">Back to top ↑</a></div><p>© 2026 Fan Hu</p></footer>
