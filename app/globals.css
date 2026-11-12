@@ -110,6 +110,7 @@ a:hover .arrow { transform: translate(2px, -2px); }
 .publication-list { border-top: 1px solid var(--line); }
 .publication-item { display: grid; grid-template-columns: 190px 1fr; gap: 35px; padding: 29px 0 31px; border-bottom: 1px solid var(--line); }
 .publication-meta { display: flex; flex-direction: column; gap: 8px; line-height: 1.35; }
+.publication-book-cover { display: block; width: 190px; max-width: 100%; height: auto; margin-bottom: 10px; object-fit: contain; }
 .publication-meta time { color: var(--ink); font-size: 12px; text-transform: none; }
 .publication-meta a { width: max-content; color: var(--accent); font-size: 11px; font-weight: 700; text-transform: none; }
 .publication-body h3 { margin: 0 0 11px; }
