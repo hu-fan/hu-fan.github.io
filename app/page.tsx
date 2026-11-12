@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react';
 
 const news = [
-  ['Nov. 2026', 'My first-author paper has been accepted by ACM TODAES!'],
+  ['Nov. 2026', 'My first-author paper, RelFACT: Reliable and Fast Aging-Aware Cell-to-Path Timing Analysis with Fine-Grained Transistor Stress Modeling, has been accepted by ACM Transactions on Design Automation of Electronic Systems (TODAES)!'],
   ['Oct. 2026', 'My research abstract has been accepted by the ICCD Student Research Forum! I will present a poster on the shift-left agentic framework in Hong Kong, China!'],
   ['Aug. 2026', "My first-author paper, RESIST: Residual Reinforcement Learning for Lifespan Clock Tree Reliability Optimization, has been accepted by ICCD'26!"],
   ['Aug. 2026', 'I received the 2026 IEEE CASS Student Travel Grant!'],
@@ -189,8 +189,8 @@ export default function Home() {
         <section className="section-block" id="education">
           <div className="section-heading"><h2 className="section-title">Education</h2></div>
           <div className="education-list">
-            <article className="education-item"><div className="school-mark school-mark-text" aria-hidden="true">PhD</div><div><p className="education-date">2026.10—Present</p><h3>PhD Candidate</h3><p>Shanghai Institute of Semiconductor Innovation（上海创芯学院）</p></div></article>
             <article className="education-item"><div className="school-mark"><img src="/sjtu-seal.png" alt="Shanghai Jiao Tong University seal" /></div><div><p className="education-date">2024—Present</p><h3>Ph.D. in Electronic Science and Technology</h3><p>Shanghai Jiao Tong University · Shanghai, China</p><p className="education-note">Advisor: <a href="https://sites.gc.sjtu.edu.cn/xinfei-guo/" target="_blank" rel="noreferrer">Prof. Xinfei Guo</a></p></div></article>
+            <article className="education-item"><div className="school-mark school-mark-sisi"><img src="/sisi-logo.png" alt="Shanghai Institute of Semiconductor Innovation logo" /></div><div><p className="education-date">2026.10—Present</p><h3>PhD Candidate</h3><p>Shanghai Institute of Semiconductor Innovation（上海创芯学院）</p></div></article>
             <article className="education-item"><div className="school-mark"><img src="/sjtu-seal.png" alt="Shanghai Jiao Tong University seal" /></div><div><p className="education-date">2020—2024</p><h3>B.S. in Electrical and Computer Engineering</h3><p>Shanghai Jiao Tong University · Shanghai, China</p></div></article>
           </div>
         </section>
