@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react';
 
 const news = [
-  ['Nov. 2026', 'My first-author paper, RelFACT: Reliable and Fast Aging-Aware Cell-to-Path Timing Analysis with Fine-Grained Transistor Stress Modeling, has been accepted for publication in ACM Transactions on Design Automation of Electronic Systems (TODAES)!'],
+  ['Nov. 2026', 'My first-author paper has been accepted by ACM TODAES!'],
   ['Oct. 2026', 'My research abstract has been accepted by the ICCD Student Research Forum! I will present a poster on the shift-left agentic framework in Hong Kong, China!'],
   ['Aug. 2026', "My first-author paper, RESIST: Residual Reinforcement Learning for Lifespan Clock Tree Reliability Optimization, has been accepted by ICCD'26!"],
   ['Aug. 2026', 'I received the 2026 IEEE CASS Student Travel Grant!'],
