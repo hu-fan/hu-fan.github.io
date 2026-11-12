@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react';
 
 const news = [
+  ['Nov. 2026', 'My first-author paper, RelFACT: Reliable and Fast Aging-Aware Cell-to-Path Timing Analysis with Fine-Grained Transistor Stress Modeling, has been accepted for publication in ACM Transactions on Design Automation of Electronic Systems (TODAES)!'],
   ['Oct. 2026', 'My research abstract has been accepted by the ICCD Student Research Forum! I will present a poster on the shift-left agentic framework in Hong Kong, China!'],
   ['Aug. 2026', "My first-author paper, RESIST: Residual Reinforcement Learning for Lifespan Clock Tree Reliability Optimization, has been accepted by ICCD'26!"],
   ['Aug. 2026', 'I received the 2026 IEEE CASS Student Travel Grant!'],
@@ -24,6 +25,7 @@ const researchAreas = [
 ];
 
 const publications = [
+  { type: 'Journal paper', venue: 'TODAES 2026', tag: 'ACM TODAES', title: 'RelFACT: Reliable and Fast Aging-Aware Cell-to-Path Timing Analysis with Fine-Grained Transistor Stress Modeling', authors: 'Fan Hu, Jani Babu Shaik, Yujie Shao, Junjie Liu, Yushan Pan, Sonal Singhal, and Xinfei Guo', citation: 'ACM Transactions on Design Automation of Electronic Systems (TODAES), 2026. Accepted for publication.', leadAuthor: true, leadLabel: 'First author', image: '/publications/relfact-overview.jpg', imageAlt: 'Overview of the RelFACT framework for aging-aware cell-to-path timing analysis, including transistor stress modeling, graph encoding, transfer learning, and full-chip timing prediction' },
   { type: 'Conference paper', venue: 'ICCD 2026', tag: 'ICCD 2026', title: 'RESIST: Residual Reinforcement Learning for Lifespan Clock Tree Reliability Optimization', authors: 'F. Hu, X. Wu, H. Wang, J. Shaik, S. Singhal, and X. Guo*', citation: 'IEEE International Conference on Computer Design (ICCD), 2026.', leadAuthor: true, leadLabel: 'First author', image: '/publications/resist-overview.png', imageAlt: 'Overview of the RESIST lifespan timing optimization framework' },
   { type: 'Conference paper', venue: 'AICAS 2026', tag: 'AICAS 2026', title: 'Beyond Iterative Search: Intelligent Generative GATv2 Framework for Analog Sizing', authors: 'F. Hu, J. Shaik, and X. Guo*', citation: 'IEEE International Conference on Artificial Intelligence Circuits and Systems (AICAS), 2026.', leadAuthor: true, leadLabel: 'First author', image: '/publications/gatv2-analog-sizing.png', imageAlt: 'Overview of the generative GATv2 analog sizing framework' },
   { type: 'Conference paper', venue: 'DAC 2026', title: 'ChiPlanner: Physically-Aware and Timing-Driven Design Planner for 2.5D Multi-Chiplet Systems', authors: 'Z. Li†, K. Tian†, F. Hu, Z. Li, X. Wu, H. Zhang, S. Chen, J. Zhai*, X. Guo*, and K. Zhao', citation: 'ACM/IEEE Design Automation Conference (DAC), 2026.' },
@@ -92,9 +94,9 @@ const searchEntries = [
 function Arrow() { return <span aria-hidden="true" className="arrow">↗</span>; }
 
 function AuthorLine({ authors }: { authors: string }) {
-  const parts = authors.split(/(F\. Hu|[†*])/g).filter(Boolean);
+  const parts = authors.split(/(F\. Hu|Fan Hu|[†*])/g).filter(Boolean);
   return <>{parts.map((part, index) => {
-    if (part === 'F. Hu') return <strong key={`${part}-${index}`}>F. Hu</strong>;
+    if (part === 'F. Hu' || part === 'Fan Hu') return <strong key={`${part}-${index}`}>{part}</strong>;
     if (part === '†' || part === '*') return <sup className="author-marker" key={`${part}-${index}`}>{part}</sup>;
     return <span key={`${part}-${index}`}>{part}</span>;
   })}</>;
