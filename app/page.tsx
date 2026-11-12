@@ -78,7 +78,7 @@ const searchEntries = [
   { label: 'Fan Hu · Ph.D. Candidate', href: '#top', meta: 'Profile', keywords: 'Shanghai Jiao Tong University Google Scholar GitHub LinkedIn ORCID email researching intelligent reliable ways design chips' },
   { label: 'About Me', href: '#about', meta: 'About', keywords: 'Electronic Science and Technology advised Prof. Xinfei Guo Intelligent Circuits Architectures and Systems iCAS Lab B.S. Electrical and Computer Engineering AI Electronic Design Automation timing prediction optimization early EDA reliability-aware aging advanced semiconductor technologies' },
   { label: 'Education', href: '#education', meta: 'Section', keywords: 'Ph.D. B.S. Shanghai Jiao Tong University Electronic Science and Technology Electrical and Computer Engineering advisor Xinfei Guo 2020 2024 present Shanghai China' },
-  { label: 'Shanghai Institute of Semiconductor Innovation（上海创芯学院）', href: '#education', meta: '2026.10—Present', keywords: 'PhD Candidate Ph.D. education doctoral semiconductor' },
+  { label: 'Shanghai Institute of Semiconductor Innovation（上海创芯学院）', href: '#education', meta: '2026.10—Present', keywords: 'Ph.D. in Electronic Science and Technology education doctoral semiconductor' },
   { label: 'News', href: '#news', meta: 'Section', keywords: 'recent updates papers awards grant competition' },
   { label: 'Main Research Topics', href: '#research', meta: 'Section', keywords: 'AI EDA timing prediction optimization reliability chips 3D IC' },
   { label: 'Publications', href: '#publications', meta: 'Section', keywords: 'papers journal conference book chapter' },
@@ -190,7 +190,7 @@ export default function Home() {
           <div className="section-heading"><h2 className="section-title">Education</h2></div>
           <div className="education-list">
             <article className="education-item"><div className="school-mark"><img src="/sjtu-seal.png" alt="Shanghai Jiao Tong University seal" /></div><div><p className="education-date">2024—Present</p><h3>Ph.D. in Electronic Science and Technology</h3><p>Shanghai Jiao Tong University · Shanghai, China</p><p className="education-note">Advisor: <a href="https://sites.gc.sjtu.edu.cn/xinfei-guo/" target="_blank" rel="noreferrer">Prof. Xinfei Guo</a></p></div></article>
-            <article className="education-item"><div className="school-mark school-mark-sisi"><img src="/sisi-logo.png" alt="Shanghai Institute of Semiconductor Innovation logo" /></div><div><p className="education-date">2026.10—Present</p><h3>PhD Candidate</h3><p>Shanghai Institute of Semiconductor Innovation（上海创芯学院）</p></div></article>
+            <article className="education-item"><div className="school-mark school-mark-sisi"><img src="/sisi-logo.png" alt="Shanghai Institute of Semiconductor Innovation logo" /></div><div><p className="education-date">2026.10—Present</p><h3>Ph.D. in Electronic Science and Technology</h3><p>Shanghai Institute of Semiconductor Innovation（上海创芯学院）</p></div></article>
             <article className="education-item"><div className="school-mark"><img src="/sjtu-seal.png" alt="Shanghai Jiao Tong University seal" /></div><div><p className="education-date">2020—2024</p><h3>B.S. in Electrical and Computer Engineering</h3><p>Shanghai Jiao Tong University · Shanghai, China</p></div></article>
           </div>
         </section>
